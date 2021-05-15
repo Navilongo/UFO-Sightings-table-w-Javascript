@@ -13,3 +13,5 @@ tableData.forEach((sighting) => {
         cell.text(value);
     });
 });
+
+var button = d3.select('#filter-bnt');
