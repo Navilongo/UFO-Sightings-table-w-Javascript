@@ -16,12 +16,18 @@ tableData.forEach((sighting) => {
 
 var button = d3.select('#filter-btn');
 var form = d3.select("#form");
-button.on("click", runDate);
-form.on("submit", runDate);
+button.on("click", dateFilter);
+form.on("submit", dateFilter);
 
-function runDate() {
+function dateFilter() {
     // prevent default refresh
     d3.event.preventDefault();
 
-    
+    var inputElement = d3.select("#datetime");
+    var inputValue = inputElement.property("value");
+
+    var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
+
+    tbody.html('');
+
 }
