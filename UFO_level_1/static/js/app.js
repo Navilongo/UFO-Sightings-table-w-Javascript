@@ -5,7 +5,7 @@ var tableData = data;
 var tbody = d3.select('tbody')
 
 
-// Append data into table rows
+// Append data into table rows. Append table data for each key and value into each table row.
 tableData.forEach((sighting) => {
     var row = tbody.append("tr");
     Object.entries(sighting).forEach(([key, value]) => {
@@ -14,8 +14,11 @@ tableData.forEach((sighting) => {
     });
 });
 
+// "Filter Table" button
 var button = d3.select('#filter-btn');
-var form = d3.select("#form");
+
+// "Enter a Date" field
+var form = d3.select("#form-control");
 button.on("click", dateFilter);
 form.on("submit", dateFilter);
 
@@ -29,5 +32,12 @@ function dateFilter() {
     var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
 
     tbody.html('');
+    filteredData.forEach((sighting) => {
+        var row = tbody.append("tr");
+        Object.entries(sighting).forEach(([key, value]) => {
+            var cell = row.append("td");
+            cell.text(value);
+        });
+    });
 
-}
+};
