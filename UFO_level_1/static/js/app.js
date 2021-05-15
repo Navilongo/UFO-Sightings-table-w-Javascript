@@ -16,9 +16,9 @@ tableData.forEach((sighting) => {
 
 // "Filter Table" button
 var button = d3.select('#filter-btn');
-
 // "Enter a Date" field
-var form = d3.select("#form-control");
+var form = d3.select("#form");
+
 button.on("click", dateFilter);
 form.on("submit", dateFilter);
 
