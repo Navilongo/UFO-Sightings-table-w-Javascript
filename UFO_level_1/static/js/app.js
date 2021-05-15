@@ -1,4 +1,5 @@
 // from data.js
 var tableData = data;
 
-// YOUR CODE HERE!
+//Append UFO data to table
+var tbody = d3.select('tbody')
