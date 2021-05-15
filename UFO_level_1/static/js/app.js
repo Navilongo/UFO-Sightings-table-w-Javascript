@@ -14,4 +14,8 @@ tableData.forEach((sighting) => {
     });
 });
 
-var button = d3.select('#filter-bnt');
+var button = d3.select('#filter-btn');
+
+var form = d3.select("#form");
+button.on("click", runDate);
+form.on("submit", runDate);
